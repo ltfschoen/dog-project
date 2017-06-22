@@ -105,6 +105,14 @@ instance shown in the EC2 Dashboard
 	* TERMINATE when no longer using since otherwise may be subjected to EBS Storage costs
 
 
+## Copying data from AWS GPU Instance to Local Computer
+
+* Run the following on local machine:
+```
+scp -r aind2@<IPv4 Public IP>:/home/aind2/dog-project /Users/Ls/Desktop
+```
+
+
 ## Evaluation
 
 Your project will be reviewed by a Udacity reviewer against the CNN project [rubric](#rubric) found [here](https://review.udacity.com/#!/rubrics/810/view).  Review this rubric thoroughly, and self-evaluate your project before submission.  All criteria found in the rubric must meet specifications for you to pass.
