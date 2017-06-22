@@ -63,6 +63,47 @@ __NOTE:__ While some code has already been implemented to get you started, you w
 
 Instead of training your model on a local CPU (or GPU), you could use Amazon Web Services to launch an EC2 GPU instance.  Please refer to the [Udacity instructions](https://classroom.udacity.com/nanodegrees/nd889/parts/16cf5df5-73f0-4afa-93a9-de5974257236/modules/53b2a19e-4e29-4ae7-aaf2-33d195dbdeba/lessons/2df3b94c-4f09-476a-8397-e8841b147f84/project) for setting up a GPU instance for this project.
 
+* SSH into the EC2 GPU Instance 
+	```
+	ssh aind2@<EC2_IPv4_Public_IP>
+	```
+
+* Clone and Activate environment
+	```
+	git clone https://github.com/ltfschoen/dog-project; cd dog-project
+	source activate aind2;
+	```
+
+* Fetch and unzip Dog and Human datasets
+	```
+	wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip; unzip dogImages.zip; rm dogImages.zip;
+
+	wget http://vis-www.cs.umass.edu/lfw/lfw.tgz; tar -xvzf lfw.tgz; rm lfw.tgz
+	```
+
+* Fetch and unzip VGG-16 Bottleneck and ResNet50 Bottleneck
+	```
+	cd bottleneck_features; wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/DogVGG16Data.npz; cd ..
+
+	cd bottleneck_features; wget https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/DogResnet50Data.npz; cd ..
+	```
+
+* Start the Jupyter Notebook
+	```
+	jupyter notebook --ip=0.0.0.0 --no-browser
+	```
+
+* Copy/Paste the URL into your browser
+(i.e. `http://0.0.0.0:8888/?token=3156e...`)
+but REPLACE the 0.0.0.0 with the "IPv4 Public IP" from AWS EC2 GPU
+instance shown in the EC2 Dashboard
+
+* Click dog_app.ipynb in the browser to edit the notebook
+
+* IMPORTANT NOTE: 
+	* STOP the EC2 GPU Instance when not in use since "p2.xlarge" GPU Instance costs ~AU$1.5 per hour to run [according to EC2 On-Demand pricing](https://aws.amazon.com/ec2/pricing/on-demand/)
+	* TERMINATE when no longer using since otherwise may be subjected to EBS Storage costs
+
 
 ## Evaluation
 
